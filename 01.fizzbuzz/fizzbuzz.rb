@@ -13,5 +13,4 @@ def fizzbuzz
     end
   end
 end
-
 fizzbuzz
