@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "date"
+require "optparse"
 
 def calendar(year, month)
   firstday = Date.new(year, month, 1)
@@ -10,14 +11,12 @@ def calendar(year, month)
   puts "#{month}月 #{year}".center(20)
   puts "日 月 火 水 木 金 土"
   print "   " * startday
-  (firstday..lastday).each do |x|
-    print x.day.to_s.rjust(2) + " "
-    puts if x.saturday?
+  (firstday..lastday).each do |day|
+    print day.day.to_s.rjust(2) + " "
+    puts if day.saturday?
   end
   puts
 end
-
-require "optparse"
 
 options = {}
 opt = OptionParser.new
